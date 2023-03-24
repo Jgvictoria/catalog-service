@@ -23,4 +23,19 @@ spring:
       connection-timeout: 2000
       maximum-pool-size: 5
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
 
